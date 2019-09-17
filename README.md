@@ -1,7 +1,7 @@
 # kubeflow-pipeline-dockerfile-test
 
 # 環境
-cloud-shell
+localマシン
 
 # 用途
 
