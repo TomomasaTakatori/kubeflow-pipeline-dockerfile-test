@@ -1,6 +1,6 @@
 FROM maven:3.6.1-jdk-8-slim 
 SHELL ["/bin/bash", "-c"]
 RUN apt-get update && apt-get install --no-install-recommends -y git
-RUN git clone https://b17b4687a695ae9c471c6b3b05ce0394087a5547:x-oauth-basic@github.com/TomomasaTakatori/biz-energygateway-prep-PreProcessingCollection
+RUN git clone https://78d745f9d26eca0f49bb703a71940043e885e72e:x-oauth-basic@github.com/TomomasaTakatori/biz-energygateway-prep-PreProcessingCollection
 WORKDIR biz-energygateway-prep-PreProcessingCollection
 RUN mvn compile
