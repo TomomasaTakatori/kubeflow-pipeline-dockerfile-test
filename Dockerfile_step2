@@ -1,6 +1,6 @@
 FROM maven:3.6.1-jdk-8-slim 
 SHELL ["/bin/bash", "-c"]
 RUN apt-get update && apt-get install --no-install-recommends -y git
-RUN git clone https://78d745f9d26eca0f49bb703a71940043e885e72e:x-oauth-basic@github.com/TomomasaTakatori/biz-energygateway-prep-SelectFeatureColumns
+RUN git clone -b develop https://b86404928c0b9ef6b73dfd158675e3fee608985d:x-oauth-basic@github.com/TomomasaTakatori/biz-energygateway-prep-SelectFeatureColumns
 WORKDIR biz-energygateway-prep-SelectFeatureColumns
 RUN mvn compile
