@@ -1,6 +1,7 @@
 FROM maven:3.6.1-jdk-8-slim 
 SHELL ["/bin/bash", "-c"]
 RUN apt-get update && apt-get install --no-install-recommends -y git
-RUN git clone -b develop https://b86404928c0b9ef6b73dfd158675e3fee608985d:x-oauth-basic@github.com/TomomasaTakatori/biz-energygateway-prep-PreProcessingCollection
+RUN git clone https://41b752eda8de9df618f370c7b3022fb8c6acb81a:x-oauth-basic@github.com/TomomasaTakatori/biz-energygateway-prep-PreProcessingCollection
 WORKDIR biz-energygateway-prep-PreProcessingCollection
 RUN mvn compile
+RUN mvn install:install-file -Dfile=lib/openapi-java-client-0.0.2-jar-with-dependencies.jar -DgroupId=org.openapitools  -DartifactId=openapi-java-client -Dversion=0.0.2 -Dpackaging=jar
