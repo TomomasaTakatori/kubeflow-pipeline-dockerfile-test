@@ -1,7 +1,8 @@
-FROM maven:3.6.1-jdk-8-slim 
+FROM maven:3.6.1-jdk-8-slim
 SHELL ["/bin/bash", "-c"]
 RUN apt-get update && apt-get install --no-install-recommends -y git
-RUN git clone https://41b752eda8de9df618f370c7b3022fb8c6acb81a:x-oauth-basic@github.com/TomomasaTakatori/biz-energygateway-prep-SelectFeatureColumns
+RUN sed -e '54a <localRepository>/root/.m2/repository</localRepository>' /usr/share/maven/ref/settings-docker.xml
+RUN git clone https://c0d844696604939dafcaaa204cdc371d660d7395:x-oauth-basic@github.com/TomomasaTakatori/biz-energygateway-prep-SelectFeatureColumns
 WORKDIR biz-energygateway-prep-SelectFeatureColumns
-RUN mvn compile
 RUN mvn install:install-file -Dfile=lib/openapi-java-client-0.0.2-jar-with-dependencies.jar -DgroupId=org.openapitools  -DartifactId=openapi-java-client -Dversion=0.0.2 -Dpackaging=jar
+RUN mvn compile
